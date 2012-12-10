@@ -76,5 +76,8 @@
 #elif defined(_WIN32) || defined(__CYGWIN__) || defined(__CYGWIN32__) || defined(__MINGW32__)
 # define STACKTRACE_INL_HEADER "stacktrace_win32-inl.h"
 
+#elif defined(__mips__)
+# define STACKTRACE_INL_HEADER "stacktrace_mips-inl.h"
+
 #endif  // all the cases
 #endif  // BASE_STACKTRACE_CONFIG_H_

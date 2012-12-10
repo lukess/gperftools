@@ -2,7 +2,7 @@
 
 # libtool - Provide generalized library-building support services.
 # Generated automatically by config.status (google-perftools) 1.8.2
-# Libtool was configured on host meta.mtv.corp.google.com:
+# Libtool was configured on host debian:
 # NOTE: Changes made to this file will be lost: look at ltmain.sh.
 #
 #   Copyright (C) 1996, 1997, 1998, 1999, 2000, 2001, 2003, 2004, 2005,
@@ -55,13 +55,13 @@ build_old_libs=yes
 pic_mode=default
 
 # The host system.
-host_alias=
-host=x86_64-unknown-linux-gnu
+host_alias=mips-linux-gnu
+host=mips-unknown-linux-gnu
 host_os=linux-gnu
 
 # The build system.
-build_alias=
-build=x86_64-unknown-linux-gnu
+build_alias=x86_64-linux-gnu
+build=x86_64-pc-linux-gnu
 build_os=linux-gnu
 
 # A sed program that does not truncate output.
@@ -80,13 +80,13 @@ EGREP="/bin/grep -E"
 FGREP="/bin/grep -F"
 
 # A BSD- or MS-compatible name lister.
-NM="/usr/bin/nm -B"
+NM="/usr/bin/mips-linux-gnu-nm -B"
 
 # Whether we need soft or hard links.
 LN_S="ln -s"
 
 # What is the maximum length of a command?
-max_cmd_len=3458764513820540925
+max_cmd_len=1572864
 
 # Object file suffix (normally "o").
 objext=o
@@ -108,7 +108,7 @@ reload_flag=" -r"
 reload_cmds="\$LD\$reload_flag -o \$output\$reload_objs"
 
 # An object symbol dumper.
-OBJDUMP="objdump"
+OBJDUMP="mips-linux-gnu-objdump"
 
 # Method to check whether dependent libraries are shared objects.
 deplibs_check_method="pass_all"
@@ -117,19 +117,19 @@ deplibs_check_method="pass_all"
 file_magic_cmd="\$MAGIC_CMD"
 
 # The archiver.
-AR="ar"
+AR="mips-linux-gnu-ar"
 AR_FLAGS="cru"
 
 # A symbol stripping program.
-STRIP="strip"
+STRIP="mips-linux-gnu-strip"
 
 # Commands used to install an old-style archive.
-RANLIB="ranlib"
+RANLIB="mips-linux-gnu-ranlib"
 old_postinstall_cmds="chmod 644 \$oldlib~\$RANLIB \$oldlib"
 old_postuninstall_cmds=""
 
 # A C compiler.
-LTCC="gcc"
+LTCC="mips-linux-gnu-gcc"
 
 # LTCC compiler flags.
 LTCFLAGS="-g -O2"
@@ -234,10 +234,10 @@ finish_eval=""
 hardcode_into_libs=yes
 
 # Compile-time system search path for libraries.
-sys_lib_search_path_spec="/usr/lib/gcc/x86_64-linux-gnu/4.4.3 /usr/lib /lib /usr/lib/x86_64-linux-gnu"
+sys_lib_search_path_spec="/usr/lib/gcc/mips-linux-gnu/4.4.5 /usr/mips-linux-gnu/lib"
 
 # Run-time system search path for libraries.
-sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/lib/nvidia-current /usr/lib32/nvidia-current /usr/lib32/alsa-lib /usr/lib/alsa-lib /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu "
+sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu "
 
 # Whether dlopen is supported.
 dlopen_support=unknown
@@ -249,18 +249,18 @@ dlopen_self=unknown
 dlopen_self_static=unknown
 
 # Commands to strip libraries.
-old_striplib="strip --strip-debug"
-striplib="strip --strip-unneeded"
+old_striplib="mips-linux-gnu-strip --strip-debug"
+striplib="mips-linux-gnu-strip --strip-unneeded"
 
 
 # The linker used to build libraries.
-LD="/usr/bin/ld -m elf_x86_64"
+LD="/usr/mips-linux-gnu/bin/ld"
 
 # Commands used to build an old-style archive.
 old_archive_cmds="\$AR \$AR_FLAGS \$oldlib\$oldobjs~\$RANLIB \$oldlib"
 
 # A language specific compiler.
-CC="gcc"
+CC="mips-linux-gnu-gcc"
 
 # Is the compiler the GNU compiler?
 with_gcc=yes
@@ -8916,13 +8916,13 @@ build_old_libs=`case $build_libtool_libs in yes) echo no;; *) echo yes;; esac`
 # ### BEGIN LIBTOOL TAG CONFIG: CXX
 
 # The linker used to build libraries.
-LD="/usr/bin/ld -m elf_x86_64"
+LD="/usr/mips-linux-gnu/bin/ld"
 
 # Commands used to build an old-style archive.
 old_archive_cmds="\$AR \$AR_FLAGS \$oldlib\$oldobjs~\$RANLIB \$oldlib"
 
 # A language specific compiler.
-CC="g++"
+CC="mips-linux-gnu-g++"
 
 # Is the compiler the GNU compiler?
 with_gcc=yes
@@ -9047,17 +9047,17 @@ file_list_spec=""
 hardcode_action=immediate
 
 # The directories searched by this compiler when creating a shared library.
-compiler_lib_search_dirs="/usr/lib/gcc/x86_64-linux-gnu/4.4.3 /usr/lib/gcc/x86_64-linux-gnu/4.4.3 /usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../../../lib /lib/../lib /usr/lib/../lib /usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../.. /usr/lib/x86_64-linux-gnu"
+compiler_lib_search_dirs="/usr/lib/gcc/mips-linux-gnu/4.4.5 /usr/lib/gcc/mips-linux-gnu/4.4.5/../../../../mips-linux-gnu/lib/../lib /usr/lib/gcc/mips-linux-gnu/4.4.5/../../../../mips-linux-gnu/lib"
 
 # Dependencies to place before and after the objects being linked to
 # create a shared library.
-predep_objects="/usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../../../lib/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.4.3/crtbeginS.o"
-postdep_objects="/usr/lib/gcc/x86_64-linux-gnu/4.4.3/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../../../lib/crtn.o"
+predep_objects="/usr/lib/gcc/mips-linux-gnu/4.4.5/../../../../mips-linux-gnu/lib/../lib/crti.o /usr/lib/gcc/mips-linux-gnu/4.4.5/crtbeginS.o"
+postdep_objects="/usr/lib/gcc/mips-linux-gnu/4.4.5/crtendS.o /usr/lib/gcc/mips-linux-gnu/4.4.5/../../../../mips-linux-gnu/lib/../lib/crtn.o"
 predeps=""
 postdeps="-lstdc++ -lm -lgcc_s -lc -lgcc_s"
 
 # The library search path used internally by the compiler when linking
 # a shared library.
-compiler_lib_search_path="-L/usr/lib/gcc/x86_64-linux-gnu/4.4.3 -L/usr/lib/gcc/x86_64-linux-gnu/4.4.3 -L/usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.4.3/../../.. -L/usr/lib/x86_64-linux-gnu"
+compiler_lib_search_path="-L/usr/lib/gcc/mips-linux-gnu/4.4.5 -L/usr/lib/gcc/mips-linux-gnu/4.4.5/../../../../mips-linux-gnu/lib/../lib -L/usr/lib/gcc/mips-linux-gnu/4.4.5/../../../../mips-linux-gnu/lib"
 
 # ### END LIBTOOL TAG CONFIG: CXX

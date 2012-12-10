@@ -61,7 +61,7 @@
 extern "C" uint64 __rdtsc();
 #pragma intrinsic(__rdtsc)
 #endif
-#ifdef ARMV3
+#if defined( ARMV3 ) || defined(__mips__)
 #include <sys/time.h>
 #endif
 
@@ -136,6 +136,10 @@ struct CycleClock {
 #endif
     struct timeval tv;
     gettimeofday(&tv, NULL);
+    return static_cast<int64>(tv.tv_sec) * 1000000 + tv.tv_usec;
+#elif defined(__mips__)
+    struct timeval tv;
+    gettimeofday(&tv, 0);
     return static_cast<int64>(tv.tv_sec) * 1000000 + tv.tv_usec;
 #else
 // The soft failover to a generic implementation is automatic only for ARM.

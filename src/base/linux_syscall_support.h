@@ -1919,9 +1919,9 @@ struct kernel_statfs {
       type LSS_NAME(name)(type1 arg1, type2 arg2, type3 arg3, type4 arg4,     \
                           type5 arg5) {                                       \
         LSS_REG(4, arg1); LSS_REG(5, arg2); LSS_REG(6, arg3);                 \
-        LSS_REG(7, arg4); LSS_REG(8, arg5);                                   \
+        LSS_REG(7, arg4); LSS_REG(25, arg5);                                  \
         LSS_BODY(type, name, "+r", "r"(__r4), "r"(__r5), "r"(__r6),           \
-                 "r"(__r8));                                                  \
+                 "r"(__r25));                                                 \
       }
     #endif
     #undef _syscall6
@@ -2271,8 +2271,10 @@ struct kernel_statfs {
                       struct kernel_timespec*, t)
   LSS_INLINE _syscall3(int,     getdents,        int,         f,
                       struct kernel_dirent*, d, int,    c)
+#ifdef __NR_getdents64
   LSS_INLINE _syscall3(int,     getdents64,      int,         f,
                       struct kernel_dirent64*, d, int,    c)
+#endif
   LSS_INLINE _syscall0(gid_t,   getegid)
   LSS_INLINE _syscall0(uid_t,   geteuid)
   LSS_INLINE _syscall0(pid_t,   getpgrp)

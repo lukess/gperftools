@@ -48,7 +48,7 @@
 // The x86-32 case and the x86-64 case differ:
 // 32b has a mmap2() syscall, 64b does not.
 // 64b and 32b have different calling conventions for mmap().
-#if defined(__i386__) || defined(__PPC__)
+#if !defined(HAVE_MMAP64) && ( defined(__i386__) || defined(__PPC__) || ( defined(__mips__) && !defined(__MIPS64__)) )
 
 static inline void* do_mmap64(void *start, size_t length,
                               int prot, int flags,
@@ -68,10 +68,12 @@ static inline void* do_mmap64(void *start, size_t length,
       goto out;
     }
 
+#if !defined(__mips__)
     result = (void *)syscall(SYS_mmap2,
                              start, length, prot, flags, fd,
                              (off_t) (offset / pagesize));
     if (result != MAP_FAILED || errno != ENOSYS)  goto out;
+#endif
 
     // We don't have mmap2() after all - don't bother trying it in future
     have_mmap2 = false;
@@ -97,7 +99,7 @@ static inline void* do_mmap64(void *start, size_t length,
 
 #define MALLOC_HOOK_HAVE_DO_MMAP64 1
 
-#elif defined(__x86_64__) || defined(__PPC64__)  // #if defined(__i386__) || ...
+#elif defined(HAVE_MMAP64) || defined(__x86_64__) || defined(__PPC64__) || defined(__MIPS64__) // #if defined(__i386__) || ...
 
 static inline void* do_mmap64(void *start, size_t length,
                               int prot, int flags,

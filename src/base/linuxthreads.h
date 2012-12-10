@@ -50,4 +50,14 @@
 
 #endif
 
+
+# if defined(HAVE_RT_SIGPROCMASK)
+
+#  define sys_sigprocmask(a,b,c) sys_rt_sigprocmask(a, b, c, sizeof(struct kernel_sigset_t))
+#  define sys_sigaction(a,b,c)   sys_rt_sigaction(a,b,c,sizeof(struct kernel_sigaction))
+
+# endif
+
+
+
 #endif  /* _LINUXTHREADS_H */
