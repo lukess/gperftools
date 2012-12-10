@@ -49,7 +49,7 @@ namespace base {
 namespace subtle {
 
 static inline void _sync(void) {
-  __asm__ __volatile__("sync; nop": : : "memory");
+  __asm__ __volatile__(".set mips32\nsync; nop": : : "memory");
 }
 
 static inline Atomic32 OSAtomicAdd32(Atomic32 amount, Atomic32 *value)
@@ -57,6 +57,7 @@ static inline Atomic32 OSAtomicAdd32(Atomic32 amount, Atomic32 *value)
     Atomic32 temp, result;
 
     __asm__ __volatile__(
+	".set mips32\n"
         ".set push\n"
         ".set noreorder\n"
         "1:    ll      %1, %4\n"	// temp <-[link] *value
@@ -88,6 +89,7 @@ static inline bool OSAtomicCompareAndSwap32(Atomic32 old_value,
     Atomic32 prev;
 
     __asm__ __volatile__(
+	".set mips32\n"
         ".set push\n"
         ".set noreorder\n"
 	"1:    ll      %0, %2\n"	// prev <-[link] *value
